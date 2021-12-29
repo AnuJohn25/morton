@@ -56,6 +56,7 @@ jobs:
           application_name: morton-app
           environment_name: Mortonapp-env
           region: ap-southeast-2
+          version_label: ver-${{ github.sha }}
           deployment_package: morton.war
           existing_bucket_name: morton-war
 

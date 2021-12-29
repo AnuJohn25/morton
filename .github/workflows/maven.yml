@@ -46,7 +46,7 @@ jobs:
         
   deploy:
     name: deploy
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20

@@ -44,19 +44,15 @@ jobs:
       run: |
         aws s3 cp target/morton.war s3://morton-war/
         
-  deploy:
-    name: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v20
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: morton-app
-          environment_name: Mortonapp-env
-          region: ap-southeast-2
-          version_label: ver-${{ github.sha }}
-          deployment_package: morton.war
-          existing_bucket_name: morton-war
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v20
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: morton-app
+        environment_name: Mortonapp-env
+        region: ap-southeast-2
+        version_label: ver-${{ github.sha }}
+        deployment_package: morton.war
+        existing_bucket_name: morton-war
 

@@ -53,6 +53,6 @@ jobs:
         environment_name: Mortonapp-env
         region: ap-southeast-2
         ebs_version_label: ver-${{ github.sha }}
-        s3_file_path: morton.war
+        s3_file_path: /morton.war
         s3_bucket_name: morton-war
 

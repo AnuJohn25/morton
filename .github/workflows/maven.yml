@@ -45,14 +45,14 @@ jobs:
         aws s3 cp target/morton.war s3://morton-war/
         
     - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v16
+      uses: Amraneze/aws-beanstalk-deploy@master
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: morton-app
         environment_name: Mortonapp-env
         region: ap-southeast-2
-        version_label: ver-${{ github.sha }}
-        deployment_package: morton.war
-        existing_bucket_name: morton-war
+        ebs_version_label: ver-${{ github.sha }}
+        s3_file_path: morton.war
+        s3_bucket_name: morton-war
 
